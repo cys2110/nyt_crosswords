@@ -1,7 +1,7 @@
 const body = document.querySelector('p')
 
 const validScrabbleWord = async() => {
-    const response = await fetch("/1978/05/30.json")
+    const response = await fetch("/2012/05/26.json")
     const list = await response.json()
     const answers = list.answers.across
     const clues = list.clues.across
