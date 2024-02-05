@@ -1,18 +1,18 @@
 const body = document.querySelector('p')
 
 const validScrabbleWord = async() => {
-    const response = await fetch("/2015/05/01.json")
+    const response = await fetch("/1984/07/14.json")
     const list = await response.json()
     const answers = list.answers.across
     const clues = list.clues.across
     const combined = answers.map((answer, clue) => ({[answer]: clues[clue]}))
-    const stringed = JSON.stringify(combined)
-    body.innerHTML += stringed
+    const stringed = JSON.stringify(combined, false, 4)
+    body.innerText += stringed
     const downAnswers = list.answers.down
     const downClues = list.clues.down
     const downCombined = downAnswers.map((answer, clue) => ({[answer]: downClues[clue]}))
-    const downStringed = JSON.stringify(downCombined)
-    body.innerHTML += downStringed
+    const downStringed = JSON.stringify(downCombined, false, 1)
+    body.innerText += downStringed
   }
 
 validScrabbleWord()
